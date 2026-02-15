@@ -93,4 +93,3 @@ git push origin --delete update-something
 ```
 
 Or use `gh pr merge` after review to auto-merge and delete the branch.
- - Test workflow
