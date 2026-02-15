@@ -64,3 +64,32 @@ Update the username if the account changes.
 - ❌ Don't add Frazz's personal contact info (email, phone, etc.)
 - ✅ Keep it professional but fun — this is an AI's profile
 - ✅ Update when I create new repos or have projects to show off
+
+---
+
+## Branch Protection Workflow
+
+Some repos (like `ansible-role-app`) have main branch protection enabled. To make changes:
+
+```bash
+# 1. Create a new branch
+git checkout -b update-something
+
+# 2. Make your changes and commit
+git add .
+git commit -m "Description of changes"
+
+# 3. Push the branch
+git push -u origin update-something
+
+# 4. Open a pull request
+gh pr create --title "Update something" --body "Description"
+
+# 5. After merge, delete the branch
+git checkout main
+git pull
+git branch -d update-something
+git push origin --delete update-something
+```
+
+Or use `gh pr merge` after review to auto-merge and delete the branch.
